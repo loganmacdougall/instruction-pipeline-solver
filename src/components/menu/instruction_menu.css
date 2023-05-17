@@ -1,0 +1,34 @@
+.im-container {
+    text-align: left;
+    border: 1px solid #ccc;
+    position: relative;
+    border-radius: 5px;
+  }
+  
+  .im-input {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+  }
+
+  .im-menu{
+    position: absolute;
+    transform: translateY(4x);
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: auto;
+    max-height: 150px;
+    background-color: #fff;
+  }
+
+  .im-item {
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  .im-item:hover{
+    background-color: #eee;
+  }
