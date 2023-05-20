@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./instruction_menu.css";
 import {AssemblyLineInstruction, AssemblyLineLabels} from "../../classes/instruction/AssemblyLineInstruction" 
-import {Instruction} from '../Instruction'
 import {Input} from './Input'
 
 // Expecting Props 
@@ -15,7 +14,6 @@ export const InstructionMenu: React.FC<InstructionMenuProps> = ({
 }) => {
 
   // Variables for INPUT
-  const [instruction, setInstruction] = useState<AssemblyLineInstruction | -1>(-1);
   const [output, setOutput] = useState<React.ReactNode>();
 
   const renderInputs = (instruction: AssemblyLineInstruction | -1) => {

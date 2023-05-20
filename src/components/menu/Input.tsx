@@ -1,25 +1,25 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react';
+import { AssemblyLineInstruction } from '../../classes/instruction/AssemblyLineInstruction';
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>{
-    label: string;
-    onInputChange: (value: string) => void;
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  onInstructionChange: (instruction: AssemblyLineInstruction) => void;
 }
 
+export const Input: React.FC<InputProps> = ({ onInstructionChange, ...rest }) => {
 
+  // Value is an empty string
+  const [value, setValue] = useState('');
 
-export const Input: React.FC<InputProps> = ({ label, onInputChange, ...rest }) => {
-    const [value, setValue] = useState(label);
+  // Function that is called when input changes
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue: AssemblyLineInstruction | '' = e.target.value as unknown as AssemblyLineInstruction;
+    onInstructionChange(newValue); // Notify parent component of the value change
+    console.log(newValue);
+  };
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const newValue = e.target.value;
-        setValue(newValue);
-        onInputChange(newValue); // Notify parent component of the value change
-      };
-
-    return(
-        <div className="input-wrapper">
-            <label>{label}</label>
-            <input></input>
-        </div>
-    )
+  return (
+    <div className="input-wrapper">
+      <input {...rest} onChange={handleInputChange} />
+    </div>
+  );
 };
